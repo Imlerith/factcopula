@@ -1,0 +1,278 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24F740661D12B7F30082D729 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F740651D12B7F30082D729 /* main.cpp */; };
+		24F7406E1D12B95F0082D729 /* GaussLegendre.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F7406C1D12B95F0082D729 /* GaussLegendre.cpp */; };
+		24F740701D12BC910082D729 /* tCopLogLik.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F7406F1D12BC910082D729 /* tCopLogLik.cpp */; };
+		24F740721D12DE3E0082D729 /* TrapzInt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F740711D12DE3E0082D729 /* TrapzInt.cpp */; };
+		24F740741D12F8560082D729 /* GaussHermite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F740731D12F8560082D729 /* GaussHermite.cpp */; };
+		24F740761D12FD0D0082D729 /* ConvFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F740751D12FD0D0082D729 /* ConvFunc.cpp */; };
+		24F740791D1417E50082D729 /* SortValues.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F740781D1417E50082D729 /* SortValues.cpp */; };
+		24F7407B1D14530B0082D729 /* CumSum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F7407A1D14530B0082D729 /* CumSum.cpp */; };
+		24F7407D1D14615D0082D729 /* TDist_Gamma_Beta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F7407C1D14615D0082D729 /* TDist_Gamma_Beta.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		24F740601D12B7F30082D729 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		24F740621D12B7F30082D729 /* FactorCopulaSelfMade */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FactorCopulaSelfMade; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F740651D12B7F30082D729 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		24F7406C1D12B95F0082D729 /* GaussLegendre.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GaussLegendre.cpp; sourceTree = "<group>"; };
+		24F7406D1D12B95F0082D729 /* allfuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allfuncs.h; sourceTree = "<group>"; };
+		24F7406F1D12BC910082D729 /* tCopLogLik.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tCopLogLik.cpp; sourceTree = "<group>"; };
+		24F740711D12DE3E0082D729 /* TrapzInt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrapzInt.cpp; sourceTree = "<group>"; };
+		24F740731D12F8560082D729 /* GaussHermite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GaussHermite.cpp; sourceTree = "<group>"; };
+		24F740751D12FD0D0082D729 /* ConvFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConvFunc.cpp; sourceTree = "<group>"; };
+		24F740771D140EAA0082D729 /* InterpSpline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterpSpline.h; sourceTree = "<group>"; };
+		24F740781D1417E50082D729 /* SortValues.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SortValues.cpp; sourceTree = "<group>"; };
+		24F7407A1D14530B0082D729 /* CumSum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CumSum.cpp; sourceTree = "<group>"; };
+		24F7407C1D14615D0082D729 /* TDist_Gamma_Beta.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TDist_Gamma_Beta.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24F7405F1D12B7F30082D729 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24F740591D12B7F30082D729 = {
+			isa = PBXGroup;
+			children = (
+				24F740641D12B7F30082D729 /* FactorCopulaSelfMade */,
+				24F740631D12B7F30082D729 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		24F740631D12B7F30082D729 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24F740621D12B7F30082D729 /* FactorCopulaSelfMade */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		24F740641D12B7F30082D729 /* FactorCopulaSelfMade */ = {
+			isa = PBXGroup;
+			children = (
+				24F740651D12B7F30082D729 /* main.cpp */,
+				24F7406C1D12B95F0082D729 /* GaussLegendre.cpp */,
+				24F7406D1D12B95F0082D729 /* allfuncs.h */,
+				24F7406F1D12BC910082D729 /* tCopLogLik.cpp */,
+				24F740711D12DE3E0082D729 /* TrapzInt.cpp */,
+				24F740731D12F8560082D729 /* GaussHermite.cpp */,
+				24F740751D12FD0D0082D729 /* ConvFunc.cpp */,
+				24F740771D140EAA0082D729 /* InterpSpline.h */,
+				24F740781D1417E50082D729 /* SortValues.cpp */,
+				24F7407A1D14530B0082D729 /* CumSum.cpp */,
+				24F7407C1D14615D0082D729 /* TDist_Gamma_Beta.cpp */,
+			);
+			path = FactorCopulaSelfMade;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		24F740611D12B7F30082D729 /* FactorCopulaSelfMade */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F740691D12B7F30082D729 /* Build configuration list for PBXNativeTarget "FactorCopulaSelfMade" */;
+			buildPhases = (
+				24F7405E1D12B7F30082D729 /* Sources */,
+				24F7405F1D12B7F30082D729 /* Frameworks */,
+				24F740601D12B7F30082D729 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FactorCopulaSelfMade;
+			productName = FactorCopulaSelfMade;
+			productReference = 24F740621D12B7F30082D729 /* FactorCopulaSelfMade */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24F7405A1D12B7F30082D729 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Sergey Nasekin";
+				TargetAttributes = {
+					24F740611D12B7F30082D729 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = 24F7405D1D12B7F30082D729 /* Build configuration list for PBXProject "FactorCopulaSelfMade" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 24F740591D12B7F30082D729;
+			productRefGroup = 24F740631D12B7F30082D729 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				24F740611D12B7F30082D729 /* FactorCopulaSelfMade */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24F7405E1D12B7F30082D729 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F740741D12F8560082D729 /* GaussHermite.cpp in Sources */,
+				24F740661D12B7F30082D729 /* main.cpp in Sources */,
+				24F740721D12DE3E0082D729 /* TrapzInt.cpp in Sources */,
+				24F740701D12BC910082D729 /* tCopLogLik.cpp in Sources */,
+				24F7407D1D14615D0082D729 /* TDist_Gamma_Beta.cpp in Sources */,
+				24F7406E1D12B95F0082D729 /* GaussLegendre.cpp in Sources */,
+				24F7407B1D14530B0082D729 /* CumSum.cpp in Sources */,
+				24F740791D1417E50082D729 /* SortValues.cpp in Sources */,
+				24F740761D12FD0D0082D729 /* ConvFunc.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		24F740671D12B7F30082D729 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		24F740681D12B7F30082D729 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		24F7406A1D12B7F30082D729 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		24F7406B1D12B7F30082D729 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24F7405D1D12B7F30082D729 /* Build configuration list for PBXProject "FactorCopulaSelfMade" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F740671D12B7F30082D729 /* Debug */,
+				24F740681D12B7F30082D729 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24F740691D12B7F30082D729 /* Build configuration list for PBXNativeTarget "FactorCopulaSelfMade" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F7406A1D12B7F30082D729 /* Debug */,
+				24F7406B1D12B7F30082D729 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 24F7405A1D12B7F30082D729 /* Project object */;
+}
