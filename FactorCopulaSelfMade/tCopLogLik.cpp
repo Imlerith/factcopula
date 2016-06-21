@@ -14,6 +14,7 @@
 #include "InterpSpline.h"
 
 
+
 double f(double x, void* data)
 {
     return sin(x);
@@ -31,21 +32,21 @@ double fff(double x)
 }
 
 
-vector<double> invcdf(double u, double nuCF, double alpha, double nu)
+double invcdf(double u, double nuCF, double alpha, double nu)
 {
     double C;
+    int points = 120;
     vector<double> xrange;
     vector<double> GHintegral;
-    vector<double> convcdf;
     vector<double> cumcdf;
-//    double funcval;
-    Vecs sortedcdf;
-    vector<double> Y;
-    vector<double> X;
-    
+    double funcval;
+
+    //Calculate the constant for the pdf and the abscissa space for the integral
     C = 1/( (alpha*sqrt(1-pow(alpha,2)))*sqrt(nuCF*nu)*beta(0.5*nuCF,0.5)*beta(0.5*nu,0.5) );
-    xrange = linspace(-15.0,10.0,151);
+    xrange = linspace(-15.0,10.0,points);
     
+    
+    //Perform numerical integration for the pdf
     for(int i = 0; i < xrange.size(); i++){
         
         double loopint = C*Gauss_Hermite_Integration_40pts( Conv, xrange[i], alpha, nu, nuCF );
@@ -54,14 +55,9 @@ vector<double> invcdf(double u, double nuCF, double alpha, double nu)
     
     }
     
-//    for(int i = 0; i < xrange.size(); i++){
-//        
-//        double inttr = trapz(xrange,GHintegral);
-//        convcdf.push_back(inttr);
-//        
-//    }
     
-    int lag = 50;
+    //Compute the cumulative pdf (cdf)
+    int lag = 30;
     vector<double> xvec;
     vector<double> yvec;
     
@@ -74,50 +70,32 @@ vector<double> invcdf(double u, double nuCF, double alpha, double nu)
         
         }
         
-        convcdf.push_back(trapz(xvec,yvec));
+        cumcdf.push_back(trapz(xvec,yvec));
         xvec.clear();
         yvec.clear();
     
     }
     
-    
-//    vector<double>::iterator i;
-//    vector<double>::iterator j;
-//    for( i = xrange.begin(),j = GHintegral.begin(); i != xrange.end()-49; ++i, ++j ){
-//        
-//        vector<double> xvec (0,i+49);
-//        vector<double> yvec (0,j+49);
-//        
-//        convcdf.push_back(trapz(xvec,yvec));
-//        
-//    }
+    //Cut out the corresponding vector of abscissas
+    vector<double>::const_iterator first = xrange.begin() + lag;
+    vector<double>::const_iterator last = xrange.end();
+    vector<double> Y(first,last);
     
     
-//    cumcdf = cumsum(convcdf);
-//    
-//    sortedcdf = sort_indexes(cumcdf);
-//    
-//    for(int i = 0; i < sortedcdf.index.size(); i++){
-//        
-//        double sorti = sortedcdf.index[i];
-//        
-//        Y[i] = xrange[sorti];
-//        
-//    }
-//    
-//    X = sortedcdf.vals;
-//    
-//    tk::spline s;
-//    s.set_points(X,Y);
-//    
-//    
-//    funcval = s(u);
+    //Initialize an object from namespace "tk", class "spline"
+    tk::spline s;
+    s.set_points(cumcdf,Y);
     
+    //Find the inverse at u
+    funcval = s(u);
     
-    return convcdf;
+    //Return the answer
+    return funcval;
     
 }
 
+
+//Help function to generate the abscissa space (with equal-sized intervals)
 vector<double> linspace(double a, double b, int n) {
     vector<double> array;
     double step = (b-a) / (n-1);

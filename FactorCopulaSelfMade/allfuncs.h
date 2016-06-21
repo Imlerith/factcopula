@@ -96,7 +96,7 @@ double tpdf(double x, double nu);
 //Linspace making
 vector<double> linspace(double a, double b, int n);
 
-vector<double> invcdf(double u, double nuCF, double alpha, double nu);
+double invcdf(double u, double nuCF, double alpha, double nu);
 
 
 #endif /* defined(__FactorCopulaSelfMade__allfuncs__) */

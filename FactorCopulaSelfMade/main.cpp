@@ -103,12 +103,12 @@ int main () {
     
     
     //Compute the integral
-    start = clock();
+    
     approx1 = gauss_legendre(n,f,NULL,a,b);
 //    approx2 = trapz(a, ff, b, n);
     approx2 = trapz(X,Y);
     approx3 = Gauss_Hermite_Integration_40pts( Conv, xx, alpha, nu, nuCF );
-    end = clock();
+    
     printf("n = %4d: GL value = %.15g\n",n,approx1); //this is C-style output! 
     printf("n = %4d: TR value = %.15g\n",n,approx2);
     printf("n = %4d: GH value = %.15g\n",40,approx3);
@@ -173,13 +173,11 @@ int main () {
 //        
 //        cout << "Linspace: " << linsp[i] << "\n";
 //    }
-    
-    vector<double> inv;
+    start = clock();
+    double inv;
     inv = invcdf(0.1, nuCF, alpha, nu);
-    for(int i = 0; i < inv.size(); i++){
-        
-        cout << "Trial: " << inv[i] << "\n";
-    }
+    cout << "InvCdf: " << inv << "\n";
+    end = clock();
 //
 //
 //    //double val = invcdf(0.1, nuCF, alpha, nu);
