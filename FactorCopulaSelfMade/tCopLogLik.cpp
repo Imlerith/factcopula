@@ -87,11 +87,37 @@ double invcdf(double u, double nuCF, double alpha, double nu)
     s.set_points(cumcdf,Y);
     
     //Find the inverse at u
-    funcval = s(u);
+    try{
+        funcval = s(u);
+    }
+    catch(...){
+        funcval = numeric_limits<double>::quiet_NaN();
+    }
+    
     
     //Return the answer
     return funcval;
     
+}
+
+double paircop(double u, double v, double alpha, double nu, double margpar){
+
+    double h = 0.001;
+    double funcl;
+    double funcr;
+    double approxder;
+    double funcval;
+    
+    //Compute approximate derivatives
+    funcl = invcdf(u+h,margpar,alpha,nu);
+    funcr = invcdf(u-h,margpar,alpha,nu);
+    approxder = (funcl-funcr)/(2*h);
+    
+    //Compute the pair copula
+    funcval = tpdf(( invcdf(u,margpar,alpha,nu) - alpha*v )/( sqrt(1 - pow(alpha,2)) ),nu)*(1/sqrt(1-pow(alpha,2)))*approxder;
+    
+    return funcval;
+
 }
 
 

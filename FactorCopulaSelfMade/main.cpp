@@ -174,10 +174,16 @@ int main () {
 //        cout << "Linspace: " << linsp[i] << "\n";
 //    }
     start = clock();
-    double inv;
-    inv = invcdf(0.1, nuCF, alpha, nu);
-    cout << "InvCdf: " << inv << "\n";
+//    double inv;
+//    inv = invcdf(0.1, nuCF, alpha, nu);
+//    cout << "InvCdf: " << inv << "\n";
+    
+    double pcop;
+    pcop = paircop(0.1, 0.2, alpha, nu, nuCF);
+    cout << "Pair copula: " << pcop << "\n";
     end = clock();
+    
+    
 //
 //
 //    //double val = invcdf(0.1, nuCF, alpha, nu);

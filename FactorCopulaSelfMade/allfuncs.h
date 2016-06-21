@@ -96,7 +96,11 @@ double tpdf(double x, double nu);
 //Linspace making
 vector<double> linspace(double a, double b, int n);
 
+//Inverse convolution distribution
 double invcdf(double u, double nuCF, double alpha, double nu);
+
+//Pair copula function
+double paircop(double u, double v, double alpha, double nu, double margpar);
 
 
 #endif /* defined(__FactorCopulaSelfMade__allfuncs__) */
