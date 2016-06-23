@@ -21,6 +21,7 @@
 #include <time.h> 
 #include "allfuncs.h"
 #include "InterpSpline.h"
+#include "fastgl.h"
 
 
 static double time_consumed = 0; //global variable to count time
@@ -38,80 +39,81 @@ using namespace std;
 
 int main () {
     clock_t start, end;
+    
+    double DataArray[255][27];
+    double ParamArray[27][2];
+    double margpar = 5.49;
+    
+    
+    ifstream datafile ("/Users/nasekins/Desktop/ufile.txt");
+    ifstream paramfile ("/Users/nasekins/Desktop/parfile.txt");
+//    ofstream newfile ("/Users/nasekins/Desktop/ofile.txt");
+
+    
+    //IMPORT DATA INTO THE DATA ARRAY
+    for(int i = 0; i < 255; i++){
+        for(int j = 0; j < 27; j++){
+            datafile >> DataArray[i][j];
+            /*
+             newfile << myArray[i][j];
+             newfile << ";";
+             */
+            cout << "Data entry is " << DataArray[i][j] << endl;
+        }
+        /*
+         newfile << "\n";
+         */
+    }
+    
+    //IMPORT DATA INTO THE PARAMETER ARRAY
+    for(int i = 0; i < 27; i++){
+        for(int j = 0; j < 2; j++){
+            paramfile >> ParamArray[i][j];
+            cout << "Parameter entry is " << ParamArray[i][j] << endl;
+        }
+    }
+    
+
+//    // Numerical approximation of an integral
+//    double approx1;
+//    double approx2;
+//    double approx3;
 //    
-//    double DataArray[255][27];
-//    double ParamArray[27][2];
+//    //Order of integration
+//    int n = 20;
 //    
-//    
-//    ifstream datafile ("/Users/nasekins/Desktop/ufile.txt");
-//    ifstream paramfile ("/Users/nasekins/Desktop/parfile.txt");
-////    ofstream newfile ("/Users/nasekins/Desktop/ofile.txt");
+//    //Limits of integration
+//    double a = 0;
+//    double b = 1;
+//    double xx = -9.3418;
+//    double alpha = 0.5;
+//    double nu = 4.0;
+//    double nuCF = 6.0;
+    
+//    vector<double> X(5), Y(5);
+//    X[0]=0.1;
+//    X[1]=0.4;
+//    X[2]=1.2;
+//    X[3]=1.8;
+//    X[4]=2.0;
+//    Y[0]=0.1;
+//    Y[1]=0.7;
+//    Y[2]=0.6;
+//    Y[3]=1.1;
+//    Y[4]=0.9;
 //
 //    
-//    //IMPORT DATA INTO THE DATA ARRAY
-//    for(int i = 0; i < 255; i++){
-//        for(int j = 0; j < 27; j++){
-//            datafile >> DataArray[i][j];
-//            /*
-//             newfile << myArray[i][j];
-//             newfile << ";";
-//             */
-//            cout << "Data entry is " << DataArray[i][j] << endl;
-//        }
-//        /*
-//         newfile << "\n";
-//         */
-//    }
 //    
-//    //IMPORT DATA INTO THE PARAMETER ARRAY
-//    for(int i = 0; i < 27; i++){
-//        for(int j = 0; j < 2; j++){
-//            paramfile >> ParamArray[i][j];
-//            cout << "Parameter entry is " << ParamArray[i][j] << endl;
-//        }
-//    }
-    
-
-    // Numerical approximation of an integral
-    double approx1;
-    double approx2;
-    double approx3;
-    
-    //Order of integration
-    int n = 20;
-    
-    //Limits of integration
-    double a = 0;
-    double b = 1;
-    double xx = -9.3418;
-    double alpha = 0.5;
-    double nu = 4.0;
-    double nuCF = 6.0;
-    
-    vector<double> X(5), Y(5);
-    X[0]=0.1;
-    X[1]=0.4;
-    X[2]=1.2;
-    X[3]=1.8;
-    X[4]=2.0;
-    Y[0]=0.1;
-    Y[1]=0.7;
-    Y[2]=0.6;
-    Y[3]=1.1;
-    Y[4]=0.9;
-
-    
-    
-    //Compute the integral
-    
-    approx1 = gauss_legendre(n,f,NULL,a,b);
-//    approx2 = trapz(a, ff, b, n);
-    approx2 = trapz(X,Y);
-    approx3 = Gauss_Hermite_Integration_40pts( Conv, xx, alpha, nu, nuCF );
-    
-    printf("n = %4d: GL value = %.15g\n",n,approx1); //this is C-style output! 
-    printf("n = %4d: TR value = %.15g\n",n,approx2);
-    printf("n = %4d: GH value = %.15g\n",40,approx3);
+//    //Compute the integral
+//    
+//    approx1 = gauss_legendre(n,f,NULL,a,b);
+////    approx2 = trapz(a, ff, b, n);
+//    approx2 = trapz(X,Y);
+//    approx3 = Gauss_Hermite_Integration_40pts( Conv, xx, alpha, nu, nuCF );
+//    
+//    printf("n = %4d: GL value = %.15g\n",n,approx1); //this is C-style output! 
+//    printf("n = %4d: TR value = %.15g\n",n,approx2);
+//    printf("n = %4d: GH value = %.15g\n",40,approx3);
     
 //
 //    tk::spline s;
@@ -173,16 +175,22 @@ int main () {
 //        
 //        cout << "Linspace: " << linsp[i] << "\n";
 //    }
-    start = clock();
+
+    
 //    double inv;
 //    inv = invcdf(0.1, nuCF, alpha, nu);
 //    cout << "InvCdf: " << inv << "\n";
     
-    double pcop;
-    pcop = paircop(0.1, 0.2, alpha, nu, nuCF);
-    cout << "Pair copula: " << pcop << "\n";
-    end = clock();
+//    double pcop;
+//    pcop = paircop(0.1, 0.2, alpha, nu, nuCF);
+//    cout << "Pair copula: " << pcop << "\n";
     
+    
+    double fcopll;
+    start = clock();
+    fcopll = tCopLogLik(DataArray, ParamArray, margpar);
+    cout << "Log-likelihood: " << fcopll << "\n";
+    end = clock();
     
 //
 //

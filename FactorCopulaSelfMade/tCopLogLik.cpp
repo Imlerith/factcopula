@@ -12,6 +12,7 @@
 #include <float.h>
 #include "allfuncs.h"
 #include "InterpSpline.h"
+#include "fastgl.h"
 
 
 
@@ -100,7 +101,8 @@ double invcdf(double u, double nuCF, double alpha, double nu)
     
 }
 
-double paircop(double u, double v, double alpha, double nu, double margpar){
+//PAIR COPULA ESTIMATION
+double paircop(double v, double u, double alpha, double nu, double margpar){
 
     double h = 0.001;
     double funcl;
@@ -117,6 +119,71 @@ double paircop(double u, double v, double alpha, double nu, double margpar){
     funcval = tpdf(( invcdf(u,margpar,alpha,nu) - alpha*v )/( sqrt(1 - pow(alpha,2)) ),nu)*(1/sqrt(1-pow(alpha,2)))*approxder;
     
     return funcval;
+
+}
+
+
+double tCopLogLik(double udata[255][27], double param[27][2], double margpar){
+    
+    int nodes = 10;
+    double loglik = 0.0;
+
+    for(int i = 255; i--; ){
+        
+        //Initializing the integral (G.-L.)
+        double Intgl = 0.0;
+        for(int k = 1 ; k <= nodes ; ++k){
+            
+            fastgl::QuadPair p = fastgl::GLPair(nodes, k); //initializing G.-L. the nodes-weights object
+            //Initialize the product inside the integral
+            
+            double copprod = paircop( 0.5*(p.x()+1.0), udata[i][0], param[0][0], param[0][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][1], param[1][0], param[1][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][2], param[2][0], param[2][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][3], param[3][0], param[3][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][4], param[4][0], param[4][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][5], param[5][0], param[5][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][6], param[6][0], param[6][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][7], param[7][0], param[7][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][8], param[8][0], param[8][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][9], param[9][0], param[9][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][10], param[10][0], param[10][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][11], param[11][0], param[11][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][12], param[12][0], param[12][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][13], param[13][0], param[13][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][14], param[14][0], param[14][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][15], param[15][0], param[15][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][16], param[16][0], param[16][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][17], param[17][0], param[17][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][18], param[18][0], param[18][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][19], param[19][0], param[19][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][20], param[20][0], param[20][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][21], param[21][0], param[21][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][22], param[22][0], param[22][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][23], param[23][0], param[23][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][24], param[24][0], param[24][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][25], param[25][0], param[25][1], margpar)*\
+            paircop( 0.5*(p.x()+1.0), udata[i][26], param[26][0], param[26][1], margpar);
+            
+            
+//            double copprod = 1.0;
+//            for(int j = 0; j < 27; j++ ){
+//                copprod *= paircop( 0.5*(p.x()+1.0), udata[i][j], param[j][0], param[j][1], margpar);
+//            }//end of the product sum
+            
+            Intgl += 0.5*p.weight*copprod;
+            
+
+        }//end of the quadrature sum
+
+        if (Intgl != 0.0){
+            loglik += log(Intgl);
+        }
+        
+
+    }//end of the sample sum
+    
+    return -loglik;
 
 }
 

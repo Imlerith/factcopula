@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24A53BAE1D1AE3AC00540532 /* fastgl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24A53BAC1D1AE3AC00540532 /* fastgl.cpp */; };
 		24F740661D12B7F30082D729 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F740651D12B7F30082D729 /* main.cpp */; };
 		24F7406E1D12B95F0082D729 /* GaussLegendre.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F7406C1D12B95F0082D729 /* GaussLegendre.cpp */; };
 		24F740701D12BC910082D729 /* tCopLogLik.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F7406F1D12BC910082D729 /* tCopLogLik.cpp */; };
@@ -31,6 +32,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24A53BAC1D1AE3AC00540532 /* fastgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fastgl.cpp; sourceTree = "<group>"; };
+		24A53BAD1D1AE3AC00540532 /* fastgl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fastgl.h; sourceTree = "<group>"; };
 		24F740621D12B7F30082D729 /* FactorCopulaSelfMade */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FactorCopulaSelfMade; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F740651D12B7F30082D729 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		24F7406C1D12B95F0082D729 /* GaussLegendre.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GaussLegendre.cpp; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 				24F740781D1417E50082D729 /* SortValues.cpp */,
 				24F7407A1D14530B0082D729 /* CumSum.cpp */,
 				24F7407C1D14615D0082D729 /* TDist_Gamma_Beta.cpp */,
+				24A53BAC1D1AE3AC00540532 /* fastgl.cpp */,
+				24A53BAD1D1AE3AC00540532 /* fastgl.h */,
 			);
 			path = FactorCopulaSelfMade;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			files = (
 				24F740741D12F8560082D729 /* GaussHermite.cpp in Sources */,
 				24F740661D12B7F30082D729 /* main.cpp in Sources */,
+				24A53BAE1D1AE3AC00540532 /* fastgl.cpp in Sources */,
 				24F740721D12DE3E0082D729 /* TrapzInt.cpp in Sources */,
 				24F740701D12BC910082D729 /* tCopLogLik.cpp in Sources */,
 				24F7407D1D14615D0082D729 /* TDist_Gamma_Beta.cpp in Sources */,
@@ -271,6 +277,7 @@
 				24F7406B1D12B7F30082D729 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

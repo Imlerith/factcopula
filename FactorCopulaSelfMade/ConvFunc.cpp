@@ -11,6 +11,7 @@
 #include <math.h>
 #include <float.h>
 #include "allfuncs.h"
+#include "fastgl.h"
 
 
 double Conv(double t, double x, double alpha, double nu, double nuCF){

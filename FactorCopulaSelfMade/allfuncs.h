@@ -100,7 +100,10 @@ vector<double> linspace(double a, double b, int n);
 double invcdf(double u, double nuCF, double alpha, double nu);
 
 //Pair copula function
-double paircop(double u, double v, double alpha, double nu, double margpar);
+double paircop(double v, double u, double alpha, double nu, double margpar);
+
+//Factor copula loglikelihood
+double tCopLogLik(double udata[255][27], double param[27][2], double margpar);
 
 
 #endif /* defined(__FactorCopulaSelfMade__allfuncs__) */

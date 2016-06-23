@@ -11,6 +11,7 @@
 #include <math.h>
 #include <float.h>
 #include "allfuncs.h"
+#include "fastgl.h"
 
 static const double x[] = {
     1.74537214597582383493e-01,    5.23874713832277192629e-01,

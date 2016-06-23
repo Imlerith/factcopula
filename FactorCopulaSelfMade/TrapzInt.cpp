@@ -11,6 +11,7 @@
 #include <math.h>
 #include <float.h>
 #include "allfuncs.h"
+#include "fastgl.h"
 
 double trapz(vector<double> xrange, vector<double> yrange)
 {
