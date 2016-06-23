@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <float.h>
+#include <numeric>
 #include "allfuncs.h"
 #include "InterpSpline.h"
 #include "fastgl.h"
@@ -123,12 +124,15 @@ double paircop(double v, double u, double alpha, double nu, double margpar){
 }
 
 
+
+
+
 double tCopLogLik(double udata[255][27], double param[27][2], double margpar){
     
     int nodes = 10;
-    double loglik = 0.0;
+    vector<double> LogLik;
 
-    for(int i = 255; i--; ){
+    for(int i = 0; i < 255; i++ ){
         
         //Initializing the integral (G.-L.)
         double Intgl = 0.0;
@@ -177,15 +181,18 @@ double tCopLogLik(double udata[255][27], double param[27][2], double margpar){
         }//end of the quadrature sum
 
         if (Intgl != 0.0){
-            loglik += log(Intgl);
+            LogLik.push_back(log(Intgl));
         }
         
 
     }//end of the sample sum
     
+    double loglik = accumulate(LogLik.begin(), LogLik.end(), 0);
     return -loglik;
 
 }
+
+
 
 
 //Help function to generate the abscissa space (with equal-sized intervals)
